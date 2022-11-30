@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.IdentityModel.Tokens;
 using Model;
 using Model.Auth;
+using Repository;
+using Repository.Interface;
 using Serilog;
 using Serilog.Events;
 using Serilog.Filters;
@@ -76,6 +78,9 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+
+
+builder.Services.AddScoped<ISubjectRepo, SubjectRepo>();
 
 
 builder.Services.AddControllers();
